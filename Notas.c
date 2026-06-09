@@ -21,3 +21,15 @@ int main() {
 
     return 0;
 }
+void ingresarNotas(Estudiante *e, int n) {
+    for(int i = 0; i < n; i++) {
+        printf("\nEstudiante %d\n", i + 1);
+
+        for(int j = 0; j < MATERIAS; j++) {
+            do {
+                printf("Nota materia %d (0-10): ", j + 1);
+                scanf("%f", &e[i].notas[j]);
+            } while(e[i].notas[j] < 0 || e[i].notas[j] > 10);
+        }
+    }
+}
