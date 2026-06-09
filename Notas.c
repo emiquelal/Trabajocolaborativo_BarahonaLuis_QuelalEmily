@@ -21,6 +21,7 @@ int main() {
 
     return 0;
 }
+
 void ingresarNotas(Estudiante *e, int n) {
     for(int i = 0; i < n; i++) {
         printf("\nEstudiante %d\n", i + 1);
@@ -33,3 +34,17 @@ void ingresarNotas(Estudiante *e, int n) {
         }
     }
 }
+void mostrarResultados(Estudiante *e, int n) {
+    for(int i = 0; i < n; i++) {
+        float suma = 0, mayor = e[i].notas[0], menor = e[i].notas[0];
+
+        for(int j = 0; j < MATERIAS; j++) {
+            suma += e[i].notas[j];
+
+            if(e[i].notas[j] > mayor)
+                mayor = e[i].notas[j];
+
+            if(e[i].notas[j] < menor)
+                menor = e[i].notas[j];
+        }
+    }
