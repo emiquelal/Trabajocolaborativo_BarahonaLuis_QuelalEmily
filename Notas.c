@@ -47,4 +47,9 @@ void mostrarResultados(Estudiante *e, int n) {
             if(e[i].notas[j] < menor)
                 menor = e[i].notas[j];
         }
+ printf("\nEstudiante %d", i + 1);
+        printf("\nPromedio: %.2f", suma / MATERIAS);
+        printf("\nNota mas alta: %.2f", mayor);
+        printf("\nNota mas baja: %.2f\n", menor);
     }
+
