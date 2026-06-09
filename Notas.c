@@ -47,9 +47,37 @@ void mostrarResultados(Estudiante *e, int n) {
             if(e[i].notas[j] < menor)
                 menor = e[i].notas[j];
         }
- printf("\nEstudiante %d", i + 1);
+        printf("\nEstudiante %d", i + 1);
         printf("\nPromedio: %.2f", suma / MATERIAS);
         printf("\nNota mas alta: %.2f", mayor);
         printf("\nNota mas baja: %.2f\n", menor);
     }
+    for(int j = 0; j < MATERIAS; j++) {
+        float suma = 0, mayor = e[0].notas[j], menor = e[0].notas[j];
+        int aprobados = 0, reprobados = 0;
 
+        for(int i = 0; i < n; i++) {
+            float nota = e[i].notas[j];
+
+            suma += nota;
+
+            if(nota > mayor)
+                mayor = nota;
+
+            if(nota < menor)
+                menor = nota;
+
+            if(nota >= 6)
+                aprobados++;
+            else
+                reprobados++;
+        }
+
+        printf("\nMateria %d", j + 1);
+        printf("\nPromedio: %.2f", suma / n);
+        printf("\nNota mas alta: %.2f", mayor);
+        printf("\nNota mas baja: %.2f", menor);
+        printf("\nAprobados: %d", aprobados);
+        printf("\nReprobados: %d\n", reprobados);
+    }
+}
